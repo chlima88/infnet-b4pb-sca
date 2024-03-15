@@ -5,19 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5e96164-6e6c-414f-bc08-1de8c768d093" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Aluno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Disciplina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Disciplina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Turma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/infnet/Turma.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2dFB1nffzC3V3yCgEqimbPWKiN1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -26,14 +38,40 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/GitHub/_Infnet/B4/PB/sca-pb/src/main/java/br/edu/infnet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GitHub\_Infnet\B4\PB\sca-pb\src\main\java\br\edu\infnet" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitHub\_Infnet\B4\PB\sca-pb\src\main\java\br\edu\infnet" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,11 +80,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709593734675</updated>
-      <workItem from="1709593735698" duration="3000" />
+      <workItem from="1709593735698" duration="338000" />
+      <workItem from="1709594086115" duration="1700000" />
+      <workItem from="1709596373963" duration="5336000" />
+      <workItem from="1709684662781" duration="116000" />
+      <workItem from="1709684996923" duration="202000" />
+      <workItem from="1709685523911" duration="2414000" />
+      <workItem from="1709768629073" duration="5000" />
+      <workItem from="1710506992192" duration="293000" />
+      <workItem from="1710507297855" duration="442000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
