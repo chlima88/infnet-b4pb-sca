@@ -1,16 +1,18 @@
 package br.edu.infnet;
 
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Professor {
 
+    @NonNull
     private int matricula;
+    @NonNull
     private String nome;
-
-    public Professor() {}
-
-    public Professor(int matricula, String nome){
-        this.nome = nome;
-        this.matricula = matricula;
-    }
+    private Turma turma;
 
     @Override
     public String toString() {
@@ -20,19 +22,4 @@ public class Professor {
                 '}';
     }
 
-    public void setMatricula(int matricula){
-        this.matricula = matricula;
-    }
-
-    public int getMatricula(){
-        return this.matricula;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
 }

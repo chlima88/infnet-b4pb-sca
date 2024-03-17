@@ -1,26 +1,44 @@
 package br.edu.infnet;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Turma {
 
+    @NonNull
     private Integer codigo;
-    private List<Aluno> alunos;
+    @NonNull
     private Professor professor;
+    @NonNull
     private Disciplina disciplina;
+    private Map<Integer, Aluno> alunos = new HashMap<>();
 
-    public Turma() {
-        this.alunos = new ArrayList<>();
+    public String addAluno(Aluno aluno){
+        if (this.alunos.size() == 10) return "Aluno [" + aluno.getNome() + "] não adicionado. Turma Cheia";
+        aluno.setTurma(this);
+        this.alunos.put(aluno.getMatricula(), aluno);
+        return "Aluno adicionado";
     }
 
-    public Turma(int codigo, List<Aluno> alunos, Professor professor, Disciplina disciplina) {
-        this.codigo = codigo;
-        this.alunos = alunos;
-        this.professor = professor;
-        this.disciplina = disciplina;
+
+    public boolean abrirTurma() {
+        return this.alunos.size() >= 2 && this.alunos.size() <= 50;
     }
 
+    public String gerarPauta(){
+        if(!this.abrirTurma()) return "Pauta não gerada. Turma não está aberta";
+
+        return "Turma: " + this.getCodigo() +
+                "\nDisciplina: " + this.getDisciplina().getNome() +
+                "\nProfessor: " + this.getProfessor().getNome() +
+                "\nAlunos:" + alunos.values().stream().map(aluno -> "\n\t- " + aluno.getNome()).toList();
+    }
     @Override
     public String toString() {
         return "Turma{" +
@@ -31,59 +49,13 @@ public class Turma {
                 '}';
     }
 
-    public String addAluno(Aluno aluno){
-        if (this.alunos.size() == 10) return "Turma Cheia";
-        this.alunos.add(aluno);
-        return "Aluno adicionado";
-    }
-
-    public boolean confirmarTurma(){
-        if (this.alunos.size() < 2)
-            return false;
-        return true;
-    }
-
-    public String gerarPauta(){
-        if(!this.confirmarTurma()) return "Pauta não gerada. Turma não confiramda";
-
-        StringBuilder dadosAlunos = new StringBuilder();
-        for (Aluno aluno : alunos) dadosAlunos.append("\n\t- ").append(aluno.getNome());
-
-        return "Turma: " + this.getCodigo() +
-                "\nDisciplina: " + this.getDisciplina().getNome() +
-                "\nProfessor: " + this.getProfessor().getNome() +
-                "\nAlunos:" + dadosAlunos;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
+    public void setProfessor(Professor professor){
+        professor.setTurma(this);
         this.professor = professor;
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
-    }
-
     public void setDisciplina(Disciplina disciplina) {
+        disciplina.setTurma(this);
         this.disciplina = disciplina;
     }
 }

@@ -1,16 +1,18 @@
 package br.edu.infnet;
 
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Disciplina {
 
+    @NonNull
     private int codigo;
+    @NonNull
     private String nome;
-
-    public Disciplina() {}
-
-    public Disciplina(int codigo, String nome) {
-        this.codigo = codigo;
-        this.nome = nome;
-    }
+    private Turma turma;
 
     @Override
     public String toString() {
@@ -18,21 +20,5 @@ public class Disciplina {
                 "codigo=" + codigo +
                 ", nome=" + nome  +
                 "}";
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getCodigo(){
-        return this.codigo;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome(){
-        return this.nome;
     }
 }
