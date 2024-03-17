@@ -20,12 +20,12 @@ public class Turma {
     private Map<Integer, Aluno> alunos = new HashMap<>();
 
     public String addAluno(Aluno aluno){
-        if (this.alunos.size() == 10) return "Aluno [" + aluno.getNome() + "] não adicionado. Turma Cheia";
+        if (this.alunos.size() == 10)
+            return "Aluno [" + aluno.getNome() + "] não adicionado. Turma ["+ this.getCodigo()+"] Cheia";
         aluno.setTurma(this);
         this.alunos.put(aluno.getMatricula(), aluno);
-        return "Aluno adicionado";
+        return "Aluno [" + aluno.getNome() + "] adicionado à turma [" + this.getCodigo()+ "]";
     }
-
 
     public boolean abrirTurma() {
         return this.alunos.size() >= 2 && this.alunos.size() <= 50;
@@ -34,7 +34,7 @@ public class Turma {
     public String gerarPauta(){
         if(!this.abrirTurma()) return "Pauta não gerada. Turma não está aberta";
 
-        return "Turma: " + this.getCodigo() +
+        return "Cod. Turma: " + this.getCodigo() +
                 "\nDisciplina: " + this.getDisciplina().getNome() +
                 "\nProfessor: " + this.getProfessor().getNome() +
                 "\nAlunos:" + alunos.values().stream().map(aluno -> "\n\t- " + aluno.getNome()).toList();
