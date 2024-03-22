@@ -19,10 +19,11 @@ public class Turma {
     private Disciplina disciplina;
     private Map<Integer, Aluno> alunos = new HashMap<>();
 
+
     public String addAluno(Aluno aluno){
         if (this.alunos.size() == 10)
             return "Aluno [" + aluno.getNome() + "] não adicionado. Turma ["+ this.getCodigo()+"] Cheia";
-        aluno.setTurma(this);
+        aluno.getTurmas().put(this.getCodigo(), this);
         this.alunos.put(aluno.getMatricula(), aluno);
         return "Aluno [" + aluno.getNome() + "] adicionado à turma [" + this.getCodigo()+ "]";
     }

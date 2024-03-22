@@ -7,67 +7,47 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("\n1) Criação dos alunos: \n");
-
         Map<Integer, Aluno> alunos = new HashMap<>();
-
-        alunos.put(1,new Aluno(1, "João"));
-        alunos.put(2,new Aluno(2, "Maria"));
-        alunos.put(3,new Aluno(3, "Pedro"));
-        alunos.put(4,new Aluno(4, "Ana"));
-        alunos.put(5,new Aluno(5, "Carlos"));
-        alunos.put(6,new Aluno(6, "Mariana"));
-        alunos.put(7,new Aluno(7, "Paulo"));
-        alunos.put(8,new Aluno(8, "Camila"));
-        alunos.put(9,new Aluno(9, "Lucas"));
-        alunos.put(10,new Aluno(10, "Gabriela"));
-        alunos.put(11,new Aluno(11, "Larissa"));
-
-        System.out.println(alunos.get(1));
-        System.out.println(alunos.get(2));
-        System.out.println(alunos.get(3));
-
-        System.out.println("\n2) Criação do professor:\n");
-        Professor p1 = new Professor(10, "Charles");
-        System.out.println(p1);
-
-        System.out.println("\n3) Criação da disciplina:\n");
-        Disciplina d1 = new Disciplina(1, "Algebra Linear");
-        System.out.println(d1);
-
-        System.out.println("\n4) Criação das turmas:\n");
-
-
-        Turma t1 = new Turma();
-        t1.setCodigo(1);
-        t1.setDisciplina(d1);
-        t1.setProfessor(p1);
-        System.out.println(t1);
-
-
-        Turma t2 = new Turma(2, p1, d1);
-        System.out.println(t2);
-
-        System.out.println("\n5) Inclusão dos 10 alunos na turma 1:\n");
-
-        for (int i = 1; i <= 10 ; i++) {
-            System.out.println(t1.addAluno(alunos.get(i)));
-
+        for (int i = 1; i <= 11; i++) {
+            alunos.put(i + 1000, new Aluno(i + 1000, "João"));
         }
+        alunos.values().forEach(System.out::println);
 
-        System.out.println("Total de alunos: " + t1.getAlunos().size());
+        System.out.println("\n2) Criação dos professores: \n");
+        Map<Integer, Professor> professores = new HashMap<>();
+        for (int i = 1; i <= 5; i++) {
+            Professor professor = new Professor(i * 100, "Professor " + i, null);
+            professores.put(professor.getMatricula(), professor);
+        }
+        professores.values().forEach(System.out::println);
 
-        System.out.println("\n6) Inclusão do aluno 11 na turma 1:\n");
-        System.out.println(t1.addAluno(alunos.get(11)));
+        System.out.println("\n3) Criação das disciplinas: \n");
+        Map<Integer, Disciplina> disciplinas = new HashMap<>();
+        for (int i = 1; i <= 5; i++) {
+            Disciplina disciplina = new Disciplina(i, "Disciplina " + i, null);
+            disciplinas.put(disciplina.getCodigo(), disciplina);
+        }
+        disciplinas.values().forEach(System.out::println);
 
-        System.out.println("\n7) Abrir turmas:\n");
+        System.out.println("\n4) Criação das turmas: \n");
+        Map<Integer, Turma> turmas = new HashMap<>();
+        for (int i = 1; i <= 5; i++) {
+            Turma turma = new Turma(i * 10, professores.get(i * 100), disciplinas.get(i));
+            professores.get(i * 100).setTurma(turma);
+            disciplinas.get(i).setTurma(turma);
+            turmas.put(turma.getCodigo(), turma);
+        }
+        turmas.values().forEach(System.out::println);
 
-        System.out.println("Tentando abrir Turma 1 com "+ t1.getAlunos().size() +" alunos: " + t1.abrirTurma());
-        System.out.println("Tentando abrir Turma 2 com "+ t2.getAlunos().size() +" alunos: " + t2.abrirTurma());
+        System.out.println("\n5) Inclusão do aluno 1001 na Turma 10: \n");
+        alunos.get(1001).addTurma(turmas.get(10));
+        System.out.println("Turmas do aluno 1001: " +  alunos.get(1001).exibirTurmas());
+        System.out.println("Alunos na turma 10: " + turmas.get(10).getAlunos());
 
-        System.out.println("\n9) Geração da pauta: \n");
-        System.out.println("TURMA 1:\n" + t1.gerarPauta() + "\n");
-        System.out.println("TURMA 2:\n" + t2.gerarPauta() + "\n");
-
+        System.out.println("\n6) Inclusão do aluno 1002 na Turma 10: \n");
+        alunos.get(1002).addTurma(turmas.get(10));
+        System.out.println("Turmas do aluno 1002: " +  alunos.get(1002).exibirTurmas());
+        System.out.println("Alunos na turma 10: " + turmas.get(10).getAlunos());
 
     }
 }
