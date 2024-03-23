@@ -22,7 +22,8 @@ public class Turma {
 
     public String addAluno(Aluno aluno){
         if (this.alunos.size() == 10)
-            return "Aluno [" + aluno.getNome() + "] não adicionado. Turma ["+ this.getCodigo()+"] Cheia";
+            return "Aluno [" + aluno.getNome() + "] não adicionado. Turma ["
+                    + this.getCodigo()+"] Cheia";
         aluno.getTurmas().put(this.getCodigo(), this);
         this.alunos.put(aluno.getMatricula(), aluno);
         return "Aluno [" + aluno.getNome() + "] adicionado à turma [" + this.getCodigo()+ "]";
@@ -38,7 +39,8 @@ public class Turma {
         return "Cod. Turma: " + this.getCodigo() +
                 "\nDisciplina: " + this.getDisciplina().getNome() +
                 "\nProfessor: " + this.getProfessor().getNome() +
-                "\nAlunos:" + alunos.values().stream().map(aluno -> "\n\t- " + aluno.getNome()).toList();
+                "\nAlunos:" + alunos.values().stream().map(aluno ->
+                    "\n\t- " + aluno.getNome()).toList();
     }
     @Override
     public String toString() {
@@ -48,15 +50,5 @@ public class Turma {
                 ", professor=" + professor +
                 ", disciplina=" + disciplina +
                 '}';
-    }
-
-    public void setProfessor(Professor professor){
-        professor.setTurma(this);
-        this.professor = professor;
-    }
-
-    public void setDisciplina(Disciplina disciplina) {
-        disciplina.setTurma(this);
-        this.disciplina = disciplina;
     }
 }
